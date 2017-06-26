@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 追求自由
 subtitle:
-description:
-author: Chen Li
-language:
+description: 路漫漫其修远兮，吾将上下而求索
+author: 爱你如初
+language: zh-Hans
 timezone:
 
 # URL
@@ -73,7 +73,7 @@ deploy:
   branch: master
 
 org:
-    common: |
-      #+OPTIONS: toc:nil
-      #+BIND: org-html-postamble \"Last Updated %C.</br>Render by <a href='https://github.com/CodeFalling/hexo-renderer-org'>hexo-renderer-org</a> with %c\"
-    cachedir: './hexo-org-cache/'
+  common: |
+          #+OPTIONS: toc:nil
+          #+BIND: org-html-postamble \"Last Updated %C.</br>Render by <a href='https://github.com/CodeFalling/hexo-renderer-org'>hexo-renderer-org</a> with %c\"
+  cachedir: './hexo-org-cache/'
