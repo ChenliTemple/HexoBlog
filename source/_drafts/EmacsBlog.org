@@ -1,0 +1,88 @@
+#+TITLE: emacs、hexo、org-mode搭建blog
+#+AUTHOR: Chen LI
+#+EMAIL: Chenli_Temple@163.com
+#+DATE: 2017-06-23
+#+LAYOUT: post
+#+TAGS: blog
+#+GATEGPRIES:
+#+DESCRIPTON:
+
+
+   这边文章用于记录如何使用emacs(spacemacs 配置)、hexo(博客框架)、org-mode(用来写blog)、以及渲染org的hexo-renderer-org来搭建blog。
+   使用环境：
+            windows 10 x64
+            emacs 25.1
+            org 9.0.5
+* hexo 介绍
+   hexo 是一个快速、简洁的博客框架。他可以快速的生成静态网页。
+* hexo 安装
+   可以参考hexo 官方文档：https://hexo.io/zh-cn/docs/index.html
+
+#+BEGIN_EXPORT html
+<!--more-->
+#+END_EXPORT
+
+* hexo 使用
+   hexo 在指定文件夹中建立文件
+
+   #+BEGIN_SRC sh
+     hexo init <folder>
+     cd <folder>
+     npm install --no-optional
+   #+END_SRC
+
+   source
+
+   这是资源文件夹，在_posts可以存放你的文章，Markdown 和 html 格式的文件。这也是我的文章的原始文件。
+
+   使用hexo生成静态网页
+
+   #+BEGIN_SRC sh
+     hexo generate
+   #+END_SRC
+
+   public
+   通过上面的命令后，就生成一个public的文件夹。
+
+   启动服务器 在本地查看刚刚写的文章
+
+
+#+BEGIN_SRC sh
+  hexo server
+#+END_SRC
+    启动服务器后，打开http://localhost:4000 就看到你刚才写的文章了。
+
+    上面部分 hexo 只是帮我们生成了静态网页；但是，hexo也提供部署的功能，我们自己的服务器上面去。这里主要介绍如何配置部署到github。
+    你的在_config.yml文件中配置相关信息：
+
+#+BEGIN_SRC org
+  deploy:
+            type: git
+            repo: git@github.com:xxx/xxx.github.io.git
+            branch: master
+#+END_SRC
+
+    部署
+
+#+BEGIN_SRC sh
+  hexo deploy
+#+END_SRC
+
+   按照上面的步骤我们即可把我们的blog部署到github上面去。
+* github
+  github的使用就不用多说了：直接看文档：https://guides.github.com/activities/hello-world/
+  *注意创建repository 名字要和你的用户名一样！
+* 用org-mode来写blog
+
+  org-mode可以说是最好的文档编辑利器了，有兴趣的可以看看 http://orgmode.org/
+
+
+
+  最后就是让hexo支持org文件了，你可以自己手动把org导成html文件或者markdown文件。
+  或者是使用CodeFalling的hexo-renderer-org(https://github.com/CodeFalling/hexo-renderer-org)
+
+  安装：
+
+  #+BEGIN_SRC org
+  npm install https://github.com/CodeFalling/hexo-renderer-org#emacs --save
+  #+END_SRC
